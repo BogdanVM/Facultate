@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1521385825 source:e:\oop projects\dfa\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<map>
+	"DFA.h"
+
+1521362957 e:\oop projects\dfa\include\dfa.h
+	<string>
+	<vector>
+	<map>
+
+1521362764 source:e:\oop projects\dfa\src\dfa.cpp
+	"DFA.h"
+	<bits/stdc++.h>
+
+1521886569 source:c:\users\bogdan\desktop\proiecte c++\bogdanvm-fmi-28622bfae429\lfa\tema1-dfa\src\dfa.cpp
+	"DFA.h"
+	<bits/stdc++.h>
+
+1521887020 c:\users\bogdan\desktop\proiecte c++\bogdanvm-fmi-28622bfae429\lfa\tema1-dfa\include\dfa.h
+	<bits/stdc++.h>
+
+1521887003 source:c:\users\bogdan\desktop\proiecte c++\bogdanvm-fmi-28622bfae429\lfa\tema1-dfa\main.cpp
+	<bits/stdc++.h>
+	"DFA.h"
+
+1521891521 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator lfa\lfa\tema1-dfa\main.cpp
+	<bits/stdc++.h>
+	"DFA.h"
+
+1521890620 c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator lfa\lfa\tema1-dfa\include\dfa.h
+	<bits/stdc++.h>
+
+1521890169 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator lfa\lfa\tema1-dfa\src\dfa.cpp
+	"DFA.h"
+	<bits/stdc++.h>
+
+1522221925 source:c:\users\student.lab221a-6\desktop\tema1-dfa\main.cpp
+	<bits/stdc++.h>
+	"DFA.h"
+
+1522221494 c:\users\student.lab221a-6\desktop\tema1-dfa\include\dfa.h
+	<bits/stdc++.h>
+
+1522172060 source:c:\users\student.lab221a-6\desktop\tema1-dfa\src\dfa.cpp
+	"DFA.h"
+	<bits/stdc++.h>
+

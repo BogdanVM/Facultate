@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/FA.h
+bits/stdc++.h
+-
+State.h
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/State.h
+
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/State.h
+bits/stdc++.h
+-
+
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Implementations/FA.cpp
+../Headers/FA.h
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/FA.h
+bits/stdc++.h
+-
+
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Implementations/State.cpp
+../Headers/State.h
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/State.h
+bits/stdc++.h
+-
+
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/main.cpp
+bits/stdc++.h
+-
+Classes/Headers/State.h
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/State.h
+Classes/Headers/FA.h
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/Classes/Headers/FA.h
+

@@ -1,0 +1,3 @@
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/cmake-build-debug/CMakeFiles/tema2_final_v2.dir
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,14 @@
+------------- TRANSFORMARE NFA TO DFA -------------------
+
+INPUT: un NFA oarecare, dat prin stari, tranzitii, stari finale
+
+OUTPUT: DFA-ul rezultat in urma aplicarii algoritmului de conversie asupra 
+	NFA-ului primit ca input
+
+
+------------- NFA TO DFA ( ENGLISH ) --------------------
+
+INPUT: an ordinary NFA, given by its states and transitions;
+
+OUTPUT: the DFA that resulted after the implementation of the conversion 
+	algorithm applied to the given NFA.

@@ -1,0 +1,14 @@
+------------------ ACCEPTAREA UNUI CUVANT (DFA) ------------------
+
+INPUT: un DFA oarecare ( dat prin stari si tranzitii ) si un cuvant;
+
+OUTPUT: Adevarat ( daca cuvantul a fost acceptat de automat );
+	Fals ( daca cunvatul nu a fost acceptat de automat ).
+
+
+------------------ WORD ACCEPTANCE BY A DFA ----------------------
+
+INPUT: an ordinary DFA ( with states and transitions ) and a word;
+
+OUTPUT: True ( if the word was accepted );
+	False ( otherwise );

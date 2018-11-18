@@ -1,0 +1,4 @@
+E:\CLion\bin\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/mingw32-make.exe" "-DCMAKE_C_COMPILER=C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/gcc.exe" "-DCMAKE_CXX_COMPILER=C:/Program Files (x86)/mingw-w64/i686-7.2.0-posix-dwarf-rt_v5-rev1/mingw32/bin/g++.exe" -G "CodeBlocks - MinGW Makefiles" "C:\Users\Bogdan\Desktop\Facultate\Anul 1\Semestrul 2\Laboratoare\Laborator lfa\tema2_final_v2"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Bogdan/Desktop/Facultate/Anul 1/Semestrul 2/Laboratoare/Laborator lfa/tema2_final_v2/cmake-build-debug
