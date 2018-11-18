@@ -1,0 +1,18 @@
+------------------ ARBORE BINAR DE CAUTARE -------------------
+
+Se considera clasa Nod { int info; Nod* st, dr; };
+Realizati:
+	- constructori de initializare si parametrizati pentru Nod;
+	- destructor pentru calsa Nod.
+
+Clasa "ABC" are:
+	- membru privat de tip "Nod*" reprezentand radacina arborelui;
+	- metode publice pentru inserarea unui element, care sa suprascrie 
+		operatorul + si care va fi aplicat intre elementul nou 
+		introdus si un arbore;
+	- supraincarcarea operatorului ">>", prin inserari succesive;
+	- supraincarcarea operatorului "<<", care sa afiseze arborele in toate
+		cele 3 metode: RSD, SRD si SDR;
+	- metoda publica pentru stergerea unui element;
+	- metoda publica pentru determinarea inaltimii arborelui;
+	- metoda publica pentru afisarea listei frunzelor.

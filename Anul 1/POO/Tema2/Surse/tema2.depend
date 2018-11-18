@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1522259813 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2\main.cpp
+	<iostream>
+	"shapes.h"
+
+1522259197 c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2\shapes.h
+	<iostream>
+
+1522259711 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2\definitions\punct.cpp
+	<iostream>
+	"../shapes.h"
+
+1522259789 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2\definitions\patrat.cpp
+	<iostream>
+	"../shapes.h"
+
+1523358302 source:c:\users\bogdan\desktop\proiecte c++\poo\tema2\implementations\patrat.cpp
+	<iostream>
+	"../shapes.h"
+
+1523358267 c:\users\bogdan\desktop\proiecte c++\poo\tema2\shapes.h
+	<iostream>
+
+1523128659 source:c:\users\bogdan\desktop\proiecte c++\poo\tema2\implementations\punct.cpp
+	<iostream>
+	"../shapes.h"
+
+1523358312 source:c:\users\bogdan\desktop\proiecte c++\poo\tema2\main.cpp
+	<iostream>
+	"shapes.h"
+
+1523129121 source:c:\users\bogdan\desktop\proiecte c++\poo\tema2\implementations\dreptunghi.cpp
+	"../shapes.h"
+	<bits/stdc++.h>
+
+1523357817 source:c:\users\bogdan\desktop\proiecte c++\poo\tema2\implementations\romb.cpp
+	<bits/stdc++.h>
+	"../shapes.h"
+
+1524577765 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\implementations\dreptunghi.cpp
+	"../shapes.h"
+	<bits/stdc++.h>
+
+1524577917 c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\shapes.h
+	<bits/stdc++.h>
+
+1524577772 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\implementations\patrat.cpp
+	<iostream>
+	"../shapes.h"
+
+1523128659 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\implementations\punct.cpp
+	<iostream>
+	"../shapes.h"
+
+1524578217 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\main.cpp
+	<bits/stdc++.h>
+	"shapes.h"
+
+1524577883 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\implementations\romb.cpp
+	<bits/stdc++.h>
+	"../shapes.h"
+
+1524577930 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\implementations\paralelogram.cpp
+	<iostream>
+	"../shapes.h"
+
+1524577969 source:c:\users\bogdan\desktop\facultate\anul 1\semestrul 2\laboratoare\laborator poo\tema2_v2\implementations\trapez.cpp
+	<bits/stdc++.h>
+	"../shapes.h"
+

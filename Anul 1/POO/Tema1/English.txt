@@ -1,0 +1,27 @@
+----------------- BINARY SEARCH TREE ----------------
+
+Consider the class Nod { int info; Nod* st, dr; };
+
+This class shall contain:
+	
+	- initialization constructor;
+	- constructors with parameters;
+	- destructor.
+
+Consider the class "ABC" which shall contain:
+	
+	- private member of the "Nod*" type which represents the root of the 
+		binary search tree;
+
+	- public methods for the insertion of an element, which shall overload
+		the "+" operator and shall be applied between the newly 
+		inserted element and a tree;
+	
+	- overloading the ">>" operator, by successive insertions;
+	- overloading the "<<" opeartor, which shall display the tree in all 3
+		ways: Inorder, Postorder, Preorder;
+	
+	- public method for the removal of an element;
+	- public method for computing the height of the tree;
+	- public method for displaying the leaves.
+
