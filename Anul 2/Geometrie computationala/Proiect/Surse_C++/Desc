@@ -1,0 +1,21 @@
+--------------------  C++ implementation of Graham Scan algorithm ( without sort ) ----------------------------------------
+
+This is the c++ implementation of the algorithm to find the convex hull of a polygon given as input. The input is like this:
+
+    -   The number of points;
+    -   The points given by their (x, y) coordinates. ( !!! the points need to be given in counter-clockwise direction ).
+    
+After reading the input, the program adds to the convex hull the first two points and then iterates through the rest. At each
+step, we check (by applying the orientation test) where the point to be added is situated in comparison to the segment formed by 
+the last two points of the hull, like this:
+
+    -   On the left side =>   we just add the point to the hull;
+    -   On the right side =>  we add the point to the hull, replacing the last point of the hull;
+    -   On the same segment (colinearity) =>  we only keep the segment heads in the hull.
+    
+After iterating through the points, we need to treat one case separately: the last point and the first two points of the hull. 
+We check the orientation and if the first point of the hull is on the right side or colinear, we remove it from the hull.
+
+This project was created as an assignment at university.
+
+Co-authors: Martac Dana, Dragutescu Mihai, Apostu Robert.
