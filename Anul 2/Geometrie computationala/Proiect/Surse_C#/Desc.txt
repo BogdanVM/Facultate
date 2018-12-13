@@ -8,4 +8,4 @@ This is the c# implementation of the algorithm to determine the convex hull of a
     
 This project was created for an assignment at university and it is not yet entirely finished.
 
-Co-authors:   Dragutescu Mihai, Martac Dana, Apostu Robert.
+Co-authors: Martac Dana, Dragutescu Mihai, Apostu Robert.
