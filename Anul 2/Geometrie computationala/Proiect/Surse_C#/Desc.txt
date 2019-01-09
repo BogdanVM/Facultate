@@ -1,0 +1,11 @@
+----------------- C# implementation of Jarvis March ----------------------------
+
+This is the c# implementation of the algorithm to determine the convex hull of a given polygon. The user has the possibility to:
+    -   Add a new point by clicking on the chart on the position where the point shall be added;
+    -   Remove the last point added by selecting the button on the side menu;
+    -   Generating the convex hull by selecting the corresponding button on the side menu;
+    -   Delete all the points added so far.
+    
+This project was created for an assignment at university and it is not yet entirely finished.
+
+Co-authors: Martac Dana, Dragutescu Mihai, Apostu Robert.
