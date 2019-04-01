@@ -1,0 +1,7 @@
+Software to help with the selling of public transportation tickets and subscriptions.
+
+---------------------------------- FIRST TASK ------------------------------------------
+
+   -      BillingService interface with the abstract method: "buy(TicketFactory)"
+   -      TicketService interface with the abstract method: "buyTicket(Ticket t);"
+   -      SubscriptionService interface with the abstract method: "buySubscription(Subscription s);"
