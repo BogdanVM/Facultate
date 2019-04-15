@@ -1,39 +1,23 @@
 package com.fmi.project.models.tickets;
 
-import java.util.Date;
+import java.util.Calendar;
 
-public class OneRideTicket implements Ticket {
-
-    private int numberOfRides;
-    private int availabilityInDays;
-    private double price;
-    private Date dateOfAquisition;
+public class OneRideTicket extends Ticket {
 
     public OneRideTicket() {
+        super(Calendar.getInstance());
+        setAvailabilityPriceAndRides();
+    }
+
+    public OneRideTicket(Calendar dateOfAquisition) {
+        super(dateOfAquisition);
+        setAvailabilityPriceAndRides();
+    }
+
+    @Override
+    public void setAvailabilityPriceAndRides() {
         numberOfRides = 1;
         availabilityInDays = 100;
         price = 2.5;
-
-        dateOfAquisition = new Date();
-    }
-
-    @Override
-    public int getNumberOfRides() {
-        return numberOfRides;
-    }
-
-    @Override
-    public int getAvailabilityInDays() {
-        return availabilityInDays;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public Date getAquisitionDay() {
-        return dateOfAquisition;
     }
 }

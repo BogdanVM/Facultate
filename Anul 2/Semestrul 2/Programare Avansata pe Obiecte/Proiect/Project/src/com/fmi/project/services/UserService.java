@@ -6,6 +6,7 @@ import com.fmi.project.auth.UserAuthenticable;
 import com.fmi.project.factories.AbstractTransportationFactory;
 import com.fmi.project.factories.FactoryProducer;
 import com.fmi.project.models.TransportationMethod;
+import com.fmi.project.models.subscriptions.Subscription;
 import com.fmi.project.models.tickets.Ticket;
 
 import java.util.List;
@@ -35,12 +36,16 @@ public class UserService {
         for (TransportationMethod tm : userList) {
             if (t.equals(TransportationTypes.TICKET)) {
                 if (tm instanceof Ticket) {
-                    
+                    Ticket ticket = (Ticket) tm;
+                    System.out.println(ticket.toString());
                 }
             } else if (t.equals(TransportationTypes.SUBSCRIPTION)) {
-
-            } else {
-
+                if (tm instanceof Subscription) {
+                    Subscription subscription = (Subscription) tm;
+                    System.out.println(subscription.toString());
+                }
+            } else if (t.equals(TransportationTypes.ANY)) {
+                System.out.println(tm.toString());
             }
         }
     }

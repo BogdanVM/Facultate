@@ -1,9 +1,9 @@
 package com.fmi.project.models;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public interface TransportationMethod {
     int getAvailabilityInDays();
     double getPrice();
-    Date getAquisitionDay();
+    Calendar getAquisitionDay();
 }

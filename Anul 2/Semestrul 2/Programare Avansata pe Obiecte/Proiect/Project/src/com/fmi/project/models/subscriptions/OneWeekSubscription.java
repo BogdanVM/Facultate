@@ -1,30 +1,23 @@
 package com.fmi.project.models.subscriptions;
 
+import java.util.Calendar;
 import java.util.Date;
 
-public class OneWeekSubscription implements Subscription {
-    private int availabilityInDays;
-    private double price;
-    private Date dateOfAquisition;
+public class OneWeekSubscription extends Subscription {
 
     public OneWeekSubscription() {
+        super(Calendar.getInstance());
+        setAvailabilityAndPrice();
+    }
+
+    public OneWeekSubscription(Calendar dateOfAquisition) {
+        super(dateOfAquisition);
+        setAvailabilityAndPrice();
+    }
+
+    @Override
+    public void setAvailabilityAndPrice() {
         availabilityInDays = 7;
         price = 25.0;
-        dateOfAquisition = new Date();
-    }
-
-    @Override
-    public int getAvailabilityInDays() {
-        return availabilityInDays;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public Date getAquisitionDay() {
-        return dateOfAquisition;
     }
 }
