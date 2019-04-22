@@ -10,4 +10,5 @@ Clase abstracte, interfețe și enums:
  - `enum TransportationTypes {TICKET, SUBSCRIPTION, ANY}` = această enumerare a fost creată pentru a ușura deosebirea dintre tipurile de TransportationMethods;
  
 Clase concrete:
- - ``
+ - `class OneRideTicket` / `class TwoRideTicket` / `class TenRideTicket` = clasele concrete derivate din `abstract class Ticket`. În constructor, sunt inițializate valorile pentru proprietățile din `Ticket`;
+ - `class OneDaySubscription` / `class OneWeekSubscription` / `class OneMonthSubscription` = clasele concrete derivate din `abstract class Subscription`. La fel ca mai sus, constructorul inițializează proprietățile;
