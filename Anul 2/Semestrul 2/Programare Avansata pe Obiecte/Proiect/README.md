@@ -63,8 +63,8 @@ Acum, urmează cele 2 factories concrete, care vor crea obiecte de un anume tip 
  - `class WritingService` = conține doar un `String path` (calea către fișierul csv). Metode:
    
    - `private void writeLines(List<List<String>> lines) throws IOException` = primește ca parametru o listă de liste. Toate string-urile din *lines* vor fi scrise în fișierul memorat prin *path* după formatul următor: 
-    1. `lines.get(i)` => linia *i* a fișierului;
-    2. `lines.get(i).get(j)` => cuvântul cu nr *j* de pe linia *i* a fișierului;
+     1. `lines.get(i)` => linia *i* a fișierului;
+     2. `lines.get(i).get(j)` => cuvântul cu nr *j* de pe linia *i* a fișierului;
    
    - `void deleteLine(int i) throws IOException` = citește printr-un `ReadService readService;` toate liniile din fișier, mai puțin linia *i*. Apoi, apelând metoda `writeLines(lines)`, scrie în fișier acele linii. Astfel, este eliminată linia cu nr *i*.
    - `void updateLine(int lineIndex, int wordIndex, String updatedWord` = citește printr-un `ReadService readService;` toate liniile din fișier, iar la linia cu index-ul `lineIndex` se apelează `line.set(wordIndex, updatedWord);`, adică se înlocuiește cuvântul de pe poziția `wordIndex` cu `updatedWord`. Apoi, se apelează metoda `writeLines(lines)` pentru a se rescrie fișierul.
