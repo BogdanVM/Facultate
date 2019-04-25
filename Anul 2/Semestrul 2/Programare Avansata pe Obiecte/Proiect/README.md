@@ -56,3 +56,15 @@ Acum, urmează cele 2 factories concrete, care vor crea obiecte de un anume tip 
    
    - `public void listTransportationMethods(TransportationTypes t)` = afișează toate elementele din listă care au tipul de transport la fel ca parametrul *t*. Acesta va fi un obiect de tip enum care ne spune dacă avem: *Ticket*, *Subscription* sau *Any*. Verificarea o facem în interiorul for-ului;
    - `public void updateTransportationMethods()` = iterează prin listă și verifică dacă vreun abonament / bilet a expirat și îl elimină dacă s-a întâmplat asta.
+
+ - `class ReadingService` = conține un obiect de tip `BufferedReader` (inițializat în constructor) și un `String path;`. Metode:
+   - `public List<String> readLine() throws IOException` = folosind obiectul *bufferedReader* citește următoarea linie din fișier, pe care o separă în funcție de virgulă `line.split(”,”);` și întoarce lista formată din cuvintele separate prin virgulă. În cazul în care am ajuns la sfârșitul fișierului, întoarce *null*. 
+ 
+ - `class WritingService` = conține doar un `String path` (calea către fișierul csv). Metode:
+   
+   - `private void writeLines(List<List<String>> lines) throws IOException` = primește ca parametru o listă de liste. Toate string-urile din *lines* vor fi scrise în fișierul memorat prin *path* după formatul următor: 
+    - `lines.get(i)` => linia *i* a fișierului;
+    - `lines.get(i).get(j)` => cuvântul cu nr *j* de pe linia *i* a fișierului;
+   
+   - `void deleteLine(int i) throws IOException` = citește printr-un `ReadService readService;` toate liniile din fișier, mai puțin linia *i*. Apoi, apelând metoda `writeLines(lines)`, scrie în fișier acele linii. Astfel, este eliminată linia cu nr *i*.
+   - `void updateLine(int lineIndex, int wordIndex, String updatedWord` = citește printr-un `ReadService readService;` toate liniile din fișier, iar la linia cu index-ul `lineIndex` se apelează `line.set(wordIndex, updatedWord);`, adică se înlocuiește cuvântul de pe poziția `wordIndex` cu `updatedWord`. Apoi, se apelează metoda `writeLines(lines)` pentru a se rescrie fișierul.
