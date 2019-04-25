@@ -39,13 +39,13 @@ public class ReadService {
         this.path = path;
     }
 
-    
+
     /**
      * Method that reads an entire line using the bufferedReader member data
      * and splits the line by ','.
      *
      * @return list of strings containing the words on the current line read by the BufferedReader obj
-     * (split by ',').
+     * (split by ','). IF EOF => RETURN NULL;
      * @throws IOException in case of a problem with reading from the file.
      */
     public List<String> readLine() throws IOException {

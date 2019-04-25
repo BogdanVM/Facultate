@@ -7,19 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WriteService {
-    private BufferedWriter bufferedWriter;
     private String path;
 
     public WriteService(String path) {
         this.path = path;
-    }
-
-    public BufferedWriter getBufferedWriter() {
-        return bufferedWriter;
-    }
-
-    public void setBufferedWriter(BufferedWriter bufferedWriter) {
-        this.bufferedWriter = bufferedWriter;
     }
 
     public String getPath() {
@@ -39,7 +30,7 @@ public class WriteService {
      * @throws IOException in case of a problem with writing in the file
      */
     private void writeLines(List<List<String>> lines) throws IOException {
-        bufferedWriter = new BufferedWriter(new FileWriter(path));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path));
         for (List<String> row : lines) {
             for (String word : row) {
                 bufferedWriter.write(word + ",");
