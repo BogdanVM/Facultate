@@ -17,6 +17,11 @@ public abstract class Subscription implements TransportationMethod {
         this.dateOfAquisition = dateOfAquisition;
     }
 
+    public Subscription(int availabilityInDays, Calendar dateOfAquisition) {
+        this.availabilityInDays = availabilityInDays;
+        this.dateOfAquisition = dateOfAquisition;
+    }
+
     public abstract void setAvailabilityAndPrice();
 
     @Override
@@ -36,6 +41,18 @@ public abstract class Subscription implements TransportationMethod {
 
     public void setDateOfAquisition(Calendar dateOfAquisition) {
         this.dateOfAquisition = dateOfAquisition;
+    }
+
+    public void setAvailabilityInDays(int availabilityInDays) {
+        this.availabilityInDays = availabilityInDays;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Calendar getDateOfAquisition() {
+        return dateOfAquisition;
     }
 
     @Override

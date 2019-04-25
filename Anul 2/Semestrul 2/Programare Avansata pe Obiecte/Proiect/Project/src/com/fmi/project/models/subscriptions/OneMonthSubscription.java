@@ -15,9 +15,14 @@ public class OneMonthSubscription extends Subscription {
         setAvailabilityAndPrice();
     }
 
+    public OneMonthSubscription(int availabilityInDays, Calendar dateOfAquisition) {
+        super(availabilityInDays, dateOfAquisition);
+        price = 70.0;
+    }
+
     @Override
     public void setAvailabilityAndPrice() {
         availabilityInDays = 30;
-        price = 8.0;
+        price = 70.0;
     }
 }

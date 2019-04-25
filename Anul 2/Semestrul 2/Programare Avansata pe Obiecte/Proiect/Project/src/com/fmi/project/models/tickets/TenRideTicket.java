@@ -14,6 +14,11 @@ public class TenRideTicket extends Ticket {
         setAvailabilityPriceAndRides();
     }
 
+    public TenRideTicket(int numberOfRides, int availabilityInDays, Calendar dateOfAquisition) {
+        super(numberOfRides, availabilityInDays, dateOfAquisition);
+        price = 20.0;
+    }
+
     @Override
     public void setAvailabilityPriceAndRides() {
         numberOfRides = 10;
