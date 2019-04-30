@@ -1,10 +1,8 @@
 package com.fmi.project.services;
 
-import com.fmi.project.TransportationTypes;
+import com.fmi.project.enums.TransportationTypes;
 import com.fmi.project.auth.Authenticable;
 import com.fmi.project.auth.UserAuthenticable;
-import com.fmi.project.factories.AbstractTransportationFactory;
-import com.fmi.project.factories.FactoryProducer;
 import com.fmi.project.models.TransportationMethod;
 import com.fmi.project.models.subscriptions.Subscription;
 import com.fmi.project.models.tickets.Ticket;

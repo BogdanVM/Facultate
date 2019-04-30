@@ -1,13 +1,12 @@
 package com.fmi.project.services;
 
-import com.fmi.project.TransportationTypes;
+import com.fmi.project.enums.TransportationTypes;
 import com.fmi.project.models.*;
 import com.fmi.project.models.subscriptions.Subscription;
 import com.fmi.project.models.tickets.Ticket;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TransportationService {

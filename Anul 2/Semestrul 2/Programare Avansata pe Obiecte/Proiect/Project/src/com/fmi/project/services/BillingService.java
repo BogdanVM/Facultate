@@ -1,11 +1,8 @@
 package com.fmi.project.services;
 
-import com.fmi.project.TransportationTypes;
+import com.fmi.project.enums.TransportationTypes;
 import com.fmi.project.models.Account;
-import com.fmi.project.models.TransportationMethod;
 import com.fmi.project.models.User;
-
-import java.util.List;
 
 public class BillingService {
     private User user;

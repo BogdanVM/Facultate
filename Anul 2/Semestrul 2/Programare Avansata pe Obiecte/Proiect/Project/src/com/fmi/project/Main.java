@@ -1,10 +1,13 @@
 package com.fmi.project;
 
+import com.fmi.project.enums.ActionTypes;
+import com.fmi.project.enums.TransportationTypes;
 import com.fmi.project.factories.SubscriptionFactory;
 import com.fmi.project.factories.TicketFactory;
 import com.fmi.project.models.TransportationMethod;
 import com.fmi.project.models.subscriptions.Subscription;
 import com.fmi.project.models.tickets.Ticket;
+import com.fmi.project.services.AuditService;
 import com.fmi.project.services.ReadService;
 import com.fmi.project.services.TransportationService;
 
@@ -81,6 +84,7 @@ public class Main {
 
         initValues();
         TransportationService transportationService = new TransportationService(transportationMethods);
+        AuditService auditService = new AuditService("src/audit.csv");
 
         while (true) {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -98,21 +102,24 @@ public class Main {
                 break;
             } else if (option == 1){
                 transportationService.listTransportationMethods(TransportationTypes.TICKET);
+                auditService.write(ActionTypes.LIST_ALL_TICKETS);
             } else if (option == 2) {
                 transportationService.listTransportationMethods(TransportationTypes.SUBSCRIPTION);
+                auditService.write(ActionTypes.LIST_ALL_SUBSCRIPTIONS);
             } else if (option == 3) {
                 /* TODO implement with database */
             } else if (option == 4) {
                 /* TODO implement with database */
             } else if (option == 5) {
                 transportationService.listTransportationMethods(TransportationTypes.TICKET);
-
+                auditService.write(ActionTypes.LIST_ALL_TICKETS);
                 int chosenTicket;
                 System.out.println("Choose your ticket (number): ");
 
                 try {
                     chosenTicket = Integer.parseInt(bufferedReader.readLine());
                     transportationService.useTicketRide(chosenTicket);
+                    auditService.write(ActionTypes.USE_TICKET_RIDE);
                 } catch (IOException e) {
                     System.err.println("An error occurred");
                 }
@@ -124,8 +131,10 @@ public class Main {
                 /* TODO implement with database */
             } else if (option == 9) {
                 transportationService.updateTransportationMethods();
+                auditService.write(ActionTypes.UPDATE_METHODS);
             } else if (option == 10) {
                 transportationService.listTransportationMethods(TransportationTypes.ANY);
+                auditService.write(ActionTypes.LIST_ALL_METHODS);
             } else if (option == 11) {
                 /* TODO implement with database */
             } else {
