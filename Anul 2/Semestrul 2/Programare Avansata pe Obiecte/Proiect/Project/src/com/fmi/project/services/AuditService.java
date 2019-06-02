@@ -1,8 +1,6 @@
 package com.fmi.project.services;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -10,17 +8,33 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class AuditService {
-    private String path;
+    private static final String LOG_LOCATION = "./audit.csv";
+    private static PrintWriter printWriter;
 
-    public AuditService(String path) {
-        this.path = path;
+    private static AuditService instance = new AuditService();
+
+    public static AuditService getInstance() {
+        return instance;
+    }
+
+    private AuditService() {
+        try {
+            printWriter = new PrintWriter(LOG_LOCATION);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> closeWriter()));
     }
 
     public void write(String actionPerformed) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, true))){
-            bufferedWriter.write(actionPerformed + ", " + Timestamp.from(Instant.now()) + "\n");
-        } catch (IOException ex) {
-            System.err.println("An error has occurred while writing to file");
-        }
+        printWriter.println(actionPerformed + ", " + Timestamp.from(Instant.now()));
+    }
+
+    private void closeWriter() {
+        printWriter.flush();
+        printWriter.close();
+
+
     }
 }

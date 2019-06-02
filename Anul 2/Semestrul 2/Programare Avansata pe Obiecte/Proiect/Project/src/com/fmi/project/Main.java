@@ -8,9 +8,11 @@ import com.fmi.project.models.TransportationMethod;
 import com.fmi.project.models.subscriptions.Subscription;
 import com.fmi.project.models.tickets.Ticket;
 import com.fmi.project.services.AuditService;
+import com.fmi.project.services.GUIService;
 import com.fmi.project.services.ReadService;
 import com.fmi.project.services.TransportationService;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -46,10 +48,12 @@ public class Main {
      * <p>Then, the object is added to the transportationMethods list</p>
      */
     private static void initValues() {
+
         ReadService readService;
-        readService = new ReadService("src/transport.csv");
+
 
         try {
+            readService = ReadService.getInstance("src/transport.csv");
             SubscriptionFactory subscriptionFactory = new SubscriptionFactory();
             TicketFactory ticketFactory = new TicketFactory();
 
@@ -80,75 +84,78 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        transportationMethods = new ArrayList<>();
 
-        initValues();
-        TransportationService transportationService = new TransportationService(transportationMethods);
-        AuditService auditService = new AuditService("src/audit.csv");
+        GUIService.buildLoginWindow();
 
-        while (true) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            int option;
-
-            try {
-                displayLoggedMenu();
-                option = Integer.parseInt(bufferedReader.readLine());
-            } catch (IOException e) {
-                System.err.println("Something went wrong");
-                continue;
-            }
-
-            if (option == 0) {
-                break;
-            } else if (option == 1){
-                transportationService.listTransportationMethods(TransportationTypes.TICKET);
-                auditService.write(ActionTypes.LIST_ALL_TICKETS);
-            } else if (option == 2) {
-                transportationService.listTransportationMethods(TransportationTypes.SUBSCRIPTION);
-                auditService.write(ActionTypes.LIST_ALL_SUBSCRIPTIONS);
-            } else if (option == 3) {
-                /* TODO implement with database */
-            } else if (option == 4) {
-                /* TODO implement with database */
-            } else if (option == 5) {
-                transportationService.listTransportationMethods(TransportationTypes.TICKET);
-                auditService.write(ActionTypes.LIST_ALL_TICKETS);
-                int chosenTicket;
-                System.out.println("Choose your ticket (number): ");
-
-                try {
-                    chosenTicket = Integer.parseInt(bufferedReader.readLine());
-                    transportationService.useTicketRide(chosenTicket);
-                    auditService.write(ActionTypes.USE_TICKET_RIDE);
-                } catch (IOException e) {
-                    System.err.println("An error occurred");
-                }
-            } else if (option == 6) {
-                /* TODO implement with database */
-            } else if (option == 7) {
-                /* TODO implement with database */
-            } else if (option == 8) {
-                /* TODO implement with database */
-            } else if (option == 9) {
-                transportationService.updateTransportationMethods();
-                auditService.write(ActionTypes.UPDATE_METHODS);
-            } else if (option == 10) {
-                transportationService.listTransportationMethods(TransportationTypes.ANY);
-                auditService.write(ActionTypes.LIST_ALL_METHODS);
-            } else if (option == 11) {
-                /* TODO implement with database */
-            } else {
-                System.err.println("Wrong option selected");
-                continue;
-            }
-
-            System.out.println();
-            System.out.println("Press enter to continue");
-            try {
-                bufferedReader.readLine();
-            } catch (IOException e) {
-                System.err.println("Something went wrong");
-            }
-        }
+//        transportationMethods = new ArrayList<>();
+//
+//        initValues();
+//        TransportationService transportationService = new TransportationService(transportationMethods);
+//        AuditService auditService = AuditService.getInstance();
+//
+//        while (true) {
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+//            int option;
+//
+//            try {
+//                displayLoggedMenu();
+//                option = Integer.parseInt(bufferedReader.readLine());
+//            } catch (IOException e) {
+//                System.err.println("Something went wrong");
+//                continue;
+//            }
+//
+//            if (option == 0) {
+//                break;
+//            } else if (option == 1){
+//                transportationService.listTransportationMethods(TransportationTypes.TICKET);
+//                auditService.write(ActionTypes.LIST_ALL_TICKETS);
+//            } else if (option == 2) {
+//                transportationService.listTransportationMethods(TransportationTypes.SUBSCRIPTION);
+//                auditService.write(ActionTypes.LIST_ALL_SUBSCRIPTIONS);
+//            } else if (option == 3) {
+//                /* TODO implement with database */
+//            } else if (option == 4) {
+//                /* TODO implement with database */
+//            } else if (option == 5) {
+//                transportationService.listTransportationMethods(TransportationTypes.TICKET);
+//                auditService.write(ActionTypes.LIST_ALL_TICKETS);
+//                int chosenTicket;
+//                System.out.println("Choose your ticket (number): ");
+//
+//                try {
+//                    chosenTicket = Integer.parseInt(bufferedReader.readLine());
+//                    transportationService.useTicketRide(chosenTicket);
+//                    auditService.write(ActionTypes.USE_TICKET_RIDE);
+//                } catch (IOException e) {
+//                    System.err.println("An error occurred");
+//                }
+//            } else if (option == 6) {
+//                /* TODO implement with database */
+//            } else if (option == 7) {
+//                /* TODO implement with database */
+//            } else if (option == 8) {
+//                /* TODO implement with database */
+//            } else if (option == 9) {
+//                transportationService.updateTransportationMethods();
+//                auditService.write(ActionTypes.UPDATE_METHODS);
+//            } else if (option == 10) {
+//                transportationService.listTransportationMethods(TransportationTypes.ANY);
+//                auditService.write(ActionTypes.LIST_ALL_METHODS);
+//            } else if (option == 11) {
+//                /* TODO implement with database */
+//            } else {
+//                System.err.println("Wrong option selected");
+//                continue;
+//            }
+//
+//            System.out.println();
+//            System.out.println("Press enter to continue");
+//            try {
+//                bufferedReader.readLine();
+//            } catch (IOException e) {
+//                System.err.println("Something went wrong");
+//            }
+//        }
     }
 }

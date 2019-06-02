@@ -7,10 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WriteService {
+    private static WriteService instance = null;
     private String path;
 
-    public WriteService(String path) {
-        this.path = path;
+    private WriteService() { }
+
+    public static WriteService getInstance(String path) {
+        if (instance == null) {
+            instance = new WriteService();
+        }
+
+        instance.setPath(path);
+        return instance;
     }
 
     public String getPath() {
@@ -53,7 +61,7 @@ public class WriteService {
      * @throws IOException thrown in the case of a problem with the file while reading and writing to it
      */
     void deleteLine(int i) throws IOException {
-        ReadService readService = new ReadService(path);
+        ReadService readService = ReadService.getInstance(path);
         int currRow = 0;
 
         List<String> line;
@@ -79,7 +87,7 @@ public class WriteService {
      * @throws IOException in case of a problem with reading or writing to the file.
      */
     void updateLine(int lineIndex, int wordIndex, String updatedWord) throws IOException {
-        ReadService readService = new ReadService(path);
+        ReadService readService = ReadService.getInstance(path);
         int currRow = 0;
 
         List<String> line;

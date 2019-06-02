@@ -9,22 +9,41 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReadService {
+    private static ReadService instance = null;
+
     private BufferedReader bufferedReader;
     private String path;
 
-    public ReadService(String path) {
-        this.path = path;
-
+    private ReadService(String path) {
         try {
             bufferedReader = new BufferedReader(new FileReader(path));
         } catch (FileNotFoundException ex) {
             System.err.println("The path specified is invalid");
             bufferedReader = null;
         }
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> closeReader()));
     }
 
-    public BufferedReader getBufferedReader() {
-        return bufferedReader;
+    public static ReadService getInstance(String path) throws FileNotFoundException {
+        if (instance == null) {
+            instance = new ReadService(path);
+        }
+
+        if (!instance.getPath().equalsIgnoreCase(path)) {
+            instance.setPath(path);
+            instance.setBufferedReader(new BufferedReader(new FileReader(path)));
+        }
+
+        return instance;
+    }
+
+    private void closeReader() {
+        try {
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setBufferedReader(BufferedReader bufferedReader) {

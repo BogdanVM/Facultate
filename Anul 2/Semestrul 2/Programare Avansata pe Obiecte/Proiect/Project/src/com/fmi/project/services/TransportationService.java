@@ -63,7 +63,7 @@ public class TransportationService {
             return;
         }
 
-        WriteService writeService = new WriteService("src/transport.csv");
+        WriteService writeService = WriteService.getInstance("src/transport.csv");
         for (int i : indicesToBeRemoved) {
             transportationMethods.remove(i);
 
@@ -110,7 +110,7 @@ public class TransportationService {
 
         ticket.setNumberOfRides(ticket.getNumberOfRides() - 1);
 
-        WriteService writeService = new WriteService("src/transport.csv");
+        WriteService writeService = WriteService.getInstance("src/transport.csv");
         if (ticket.getNumberOfRides() == 0) {
             transportationMethods.remove(ticketIndex);
 
