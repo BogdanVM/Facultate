@@ -29,8 +29,6 @@ public class MainMenuService implements ActionListener {
         switch (i) {
             case 1: {
                 /* SUBSCRIPTIONS */
-                frame.getContentPane().removeAll();
-                frame.repaint();
                 GUIService.buildDisplayWindow(TransportationTypes.SUBSCRIPTION);
             }
 

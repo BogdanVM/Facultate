@@ -14,12 +14,12 @@ import java.util.List;
 public class JDBCService {
 
     private static JDBCService instance = new JDBCService();
-    private final String DRIVER_NAME = "";
+    private final String DRIVER_NAME = "jdbc:postgresql://localhost:5432/PAO";
     private Connection connection;
 
     private JDBCService() {
         try {
-            connection = DriverManager.getConnection(DRIVER_NAME);
+            connection = DriverManager.getConnection(DRIVER_NAME, "postgres", "1234");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,7 +131,7 @@ public class JDBCService {
 
             pst.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+
         }
     }
 

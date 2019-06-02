@@ -14,7 +14,7 @@ public class LoginService implements ActionListener {
     private JTextField userNameField;
     private JPasswordField pwdField;
 
-    private final String DRIVER_NAME = "";
+    private final String DRIVER_NAME = "jdbc:postgresql://localhost:5432/PAO";
     private Connection connection;
 
     public LoginService(JFrame frame, JLabel message, JTextField userNameField, JPasswordField pwdField) {
@@ -24,7 +24,7 @@ public class LoginService implements ActionListener {
         this.frame = frame;
 
         try {
-            connection = DriverManager.getConnection(DRIVER_NAME);
+            connection = DriverManager.getConnection(DRIVER_NAME, "postgres", "1234");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -36,15 +36,17 @@ public class LoginService implements ActionListener {
                     "SELECT * FROM USERS WHERE Username = ? AND Password = ?"
             );
 
+            pst.setString(1, username);
+            pst.setString(2, password);
             ResultSet rst = pst.executeQuery();
-            if (rst.getFetchSize() != 0) {
-                return true;
+            if (!rst.next()) {
+                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return false;
+        return true;
     }
 
     @Override
@@ -52,13 +54,13 @@ public class LoginService implements ActionListener {
         String username = userNameField.getText().trim();
         String password = new String(pwdField.getPassword()).trim();
 
-        if (username.equals("12") && password.equals("12")) {
+        if (checkCredentials(username, password)) {
             frame.getContentPane().removeAll();
             frame.repaint();
 
             GUIService.buildMainMenuWindow();
         } else {
-            message.setText(username + " " + password);
+            message.setText("Invalid data");
         }
     }
 }

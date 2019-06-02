@@ -3,6 +3,14 @@ package com.fmi.project.services;
 import com.fmi.project.LoginService;
 import com.fmi.project.MainMenuService;
 import com.fmi.project.enums.TransportationTypes;
+import com.fmi.project.factories.SubscriptionFactory;
+import com.fmi.project.factories.TicketFactory;
+import com.fmi.project.models.subscriptions.OneDaySubscription;
+import com.fmi.project.models.subscriptions.OneMonthSubscription;
+import com.fmi.project.models.subscriptions.OneWeekSubscription;
+import com.fmi.project.models.tickets.OneRideTicket;
+import com.fmi.project.models.tickets.TenRideTicket;
+import com.fmi.project.models.tickets.TwoRideTicket;
 
 import javax.swing.*;
 import java.awt.*;
@@ -84,12 +92,62 @@ public abstract class GUIService {
         panel.add(changePwdBtn);
         panel.add(logoutBtn);
 
-        seeSubsBtn.addActionListener(new MainMenuService(frame, 0));
-        seeTickBtn.addActionListener(new MainMenuService(frame, 1));
-        seeBtn.addActionListener(new MainMenuService(frame, 2));
-        logoutBtn.addActionListener(new MainMenuService(frame, 6));
+        seeSubsBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.getContentPane().removeAll();
+                frame.repaint();
+                GUIService.buildDisplayWindow(TransportationTypes.SUBSCRIPTION);
+            }
+        });
+
+        seeTickBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.getContentPane().removeAll();
+                frame.repaint();
+                GUIService.buildDisplayWindow(TransportationTypes.TICKET);
+            }
+        });
+        seeBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.getContentPane().removeAll();
+                frame.repaint();
+                GUIService.buildDisplayWindow(TransportationTypes.ANY);
+            }
+        });
+
+        buySubscription.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.getContentPane().removeAll();
+                frame.repaint();
+                GUIService.buildBuyWindow(TransportationTypes.SUBSCRIPTION);
+            }
+        });
+
+        buyTicket.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.getContentPane().removeAll();
+                frame.repaint();
+                GUIService.buildBuyWindow(TransportationTypes.TICKET);
+            }
+        });
+
+        logoutBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                frame.dispose();
+                GUIService.buildLoginWindow();
+
+            }
+        });
 
         frame.add(panel);
+        frame.setVisible(true);
     }
 
     public static void buildDisplayWindow(TransportationTypes t) {
@@ -113,15 +171,22 @@ public abstract class GUIService {
         }
 
         JList<String> list = new JList<>(data[0]);
-        jPanel.add(comboBox);
-        jPanel.add(list);
+
+        JPanel panelCombo = new JPanel();
+        JPanel panelList = new JPanel();
+
+        panelCombo.add(comboBox);
+        panelList.add(list);
+
+        jPanel.add(panelCombo);
+        jPanel.add(new JScrollPane(panelList));
 
         comboBox.addActionListener(actionEvent -> {
             String item = (String) comboBox.getSelectedItem();
 
-            if (item.equals("Subscription")) {
+            if (item.equals("Subscriptions")) {
                 data[0] = jdbcService.getTransportationMethods(TransportationTypes.SUBSCRIPTION);
-            } else if (item.equals("Ticket")) {
+            } else if (item.equals("Tickets")) {
                 data[0] = jdbcService.getTransportationMethods(TransportationTypes.TICKET);
             } else {
                 data[0] = jdbcService.getTransportationMethods(TransportationTypes.ANY);
@@ -131,7 +196,10 @@ public abstract class GUIService {
         });
 
         JButton jButton = new JButton("Back");
-        jPanel.add(jButton);
+        JPanel panelButton = new JPanel();
+
+        panelButton.add(jButton);
+        jPanel.add(panelButton);
 
         jButton.addActionListener(actionEvent -> {
             frame.getContentPane().removeAll();
@@ -139,5 +207,79 @@ public abstract class GUIService {
             GUIService.buildMainMenuWindow();
         });
         frame.add(jPanel);
+        frame.setVisible(true);
+    }
+
+    public static void buildBuyWindow(TransportationTypes t) {
+        JPanel jPanel = new JPanel(new GridLayout(3, 1));
+
+        String[] transportationMethods;
+        if (t.equals(TransportationTypes.SUBSCRIPTION)) {
+            transportationMethods = new String[] {"1 month", "1 week", "1 day"};
+        } else {
+            transportationMethods = new String[] {"1 ride", "2 rides", "10 rides"};
+        }
+
+        JComboBox<String> comboBox = new JComboBox<>(transportationMethods);
+        JPanel panelCombo = new JPanel();
+        panelCombo.add(comboBox);
+        jPanel.add(panelCombo);
+
+        JButton buyButton = new JButton("Buy");
+        JPanel buyPanel = new JPanel();
+        buyPanel.add(buyButton);
+        jPanel.add(buyPanel);
+
+        JButton jButton = new JButton("Back");
+        JPanel panelButton = new JPanel();
+        panelButton.add(jButton);
+        jPanel.add(panelButton);
+
+        frame.add(jPanel);
+        frame.setVisible(true);
+
+        buyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String subtype = (String) comboBox.getSelectedItem();
+                if (t.equals(TransportationTypes.SUBSCRIPTION)) {
+                    SubscriptionFactory sf = new SubscriptionFactory();
+                    if (subtype.equalsIgnoreCase("1 day")) {
+                        OneDaySubscription s = (OneDaySubscription) sf.getTransportationMethod("one day");
+                        JDBCService.getInstance().insertTransportationMethod(s);
+                    } else if (subtype.equalsIgnoreCase("1 week")) {
+                        OneWeekSubscription s = (OneWeekSubscription) sf.getTransportationMethod("one week");
+                        JDBCService.getInstance().insertTransportationMethod(s);
+                    } else {
+                        OneMonthSubscription s = (OneMonthSubscription) sf.getTransportationMethod("one month");
+                        JDBCService.getInstance().insertTransportationMethod(s);
+                    }
+                } else {
+                    TicketFactory tf = new TicketFactory();
+                    if (subtype.equalsIgnoreCase("1 ride")) {
+                        OneRideTicket s = (OneRideTicket) tf.getTransportationMethod("one ride");
+                        JDBCService.getInstance().insertTransportationMethod(s);
+                    } else if (subtype.equalsIgnoreCase("2 rides")) {
+                        TwoRideTicket s = (TwoRideTicket) tf.getTransportationMethod("two rides");
+                        JDBCService.getInstance().insertTransportationMethod(s);
+                    } else {
+                        TenRideTicket s = (TenRideTicket) tf.getTransportationMethod("ten rides");
+                        JDBCService.getInstance().insertTransportationMethod(s);
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null, "Successful insert");
+
+            }
+        });
+
+        jButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.getContentPane().removeAll();
+                frame.repaint();
+                GUIService.buildMainMenuWindow();
+            }
+        });
     }
 }
